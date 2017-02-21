@@ -11,4 +11,5 @@ function FirstCtrl(helloBean, $scope ){
 	}
 	
 	vm.helloBean.amal = "coucou";
+	vm.helloBean.roua = "rouaCommit";
 }
