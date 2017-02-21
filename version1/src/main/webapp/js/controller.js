@@ -10,5 +10,5 @@ function FirstCtrl(helloBean, $scope ){
 		});
 	}
 	
-	//vm.helloBean.amal = "coucou";
+	vm.helloBean.amal = "coucou";
 }
