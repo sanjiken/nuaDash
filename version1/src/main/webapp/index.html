@@ -3,25 +3,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>example1</title>
-<script type="text/javascript"
-	src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="angular-beans.js"></script>
-
-<script type="text/javascript">
-	angular.module("myModule", [ "angularBeans" ]).controller("FirstCtrl",
-			function($scope, helloBean) {
-				$scope.helloBean = helloBean;
-			});
-</script>
+<script type="text/javascript" src="js/controller.js"></script>
+<script type="text/javascript" src="js/module.js"js"></script>
 
 </head>
-<body ng-controller="FirstCtrl">
+<body ng-controller="FirstCtrl as vm">
 
-	<input type="text" ng-model="helloBean.name">
+	<input type="text" ng-model="user.firstName">
+	<input type="text" ng-model="user.lastName">
+	<input type="text" ng-model="user.login">
+	<input type="text" ng-model="user.password">
+	<input type="text" ng-model="user.email">
+	<input type=checkbox ng-model="user.isDeleted">
+	<input type="checkbox" ng-model="user.isActivated">
 
-	<label>Server Response:</label>
-	<h2>{{helloBean.message}}</h2>
+	
 
-	<button ng-click="helloBean.sayHello()">say hello</button>
+	<button ng-click="addUser(user)">say hello</button>
 </body>
 </html>

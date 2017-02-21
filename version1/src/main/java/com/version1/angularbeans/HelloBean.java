@@ -1,13 +1,37 @@
 package com.version1.angularbeans;
-import angularBeans.api.http.Get;
+import javax.inject.Inject;
+
+import com.version1.model.UserModelRequest;
+import com.version1.service.UserEntityService;
 
 import angularBeans.api.AngularBean;
 import angularBeans.api.NGModel;
+import angularBeans.api.NGPostConstruct;
 import angularBeans.api.NGReturn;
 import angularBeans.api.NGSubmit;
+import angularBeans.api.http.Get;
+import angularBeans.util.ModelQuery;
 
 @AngularBean
 public class HelloBean {
+	
+	@Inject          
+	ModelQuery modelQuery;
+	
+	@Inject
+	UserEntityService userEntityService;
+	
+	@NGPostConstruct
+	public void init(){
+		modelQuery.setProperty("user", new UserModelRequest());
+	}
+	
+	@Get
+	@NGReturn(model = "msgUserAdd")
+	public String addUser(UserModelRequest userModelRequest){
+		
+		return userEntityService.addUser(userModelRequest);
+	}
 
 	private String message;
 	private String name = "insert your name here";
