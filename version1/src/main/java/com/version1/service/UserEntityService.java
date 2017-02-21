@@ -18,7 +18,7 @@ public class UserEntityService {
 	@PersistenceContext
 	EntityManager em;
 	
-	public String addUser(UserModelRequest userRequest){
+	public String addUserService(UserModelRequest userRequest){
 		
 		String isSucces = "succes" ;
 		
@@ -30,7 +30,7 @@ public class UserEntityService {
 			user.setPassword(userRequest.getPassword());
 			user.setEmail(userRequest.getEmail());
 			user.setIsActivated(userRequest.getIsActivated());
-			user.setIsDeleted(userRequest.getIsDeleted());
+			user.setIsDeleted(true);
 			
 			em.persist(user);
 		} catch (Exception e) {

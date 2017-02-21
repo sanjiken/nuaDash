@@ -28,9 +28,9 @@ public class HelloBean {
 	
 	@Get
 	@NGReturn(model = "msgUserAdd")
-	public String addUser(UserModelRequest userModelRequest){
+	public String addUserBean(UserModelRequest userModelRequest){
 		
-		return userEntityService.addUser(userModelRequest);
+		return userEntityService.addUserService(userModelRequest);
 	}
 
 	private String message;
