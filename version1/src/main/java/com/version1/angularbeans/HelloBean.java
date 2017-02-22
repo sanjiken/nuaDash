@@ -2,6 +2,7 @@ package com.version1.angularbeans;
 import javax.inject.Inject;
 
 import com.version1.model.UserModelRequest;
+import com.version1.model.UserModelResult;
 import com.version1.service.UserEntityService;
 
 import angularBeans.api.AngularBean;
@@ -31,6 +32,14 @@ public class HelloBean {
 	public String addUserBean(UserModelRequest userModelRequest){
 		
 		return userEntityService.addUserService(userModelRequest);
+	}
+	
+	
+	@Get
+	@NGReturn(model = "userResult")
+	public UserModelResult searchUserBean(String email){
+		
+		return userEntityService.searchUserService(email);
 	}
 
 	private String message;
