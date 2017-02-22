@@ -10,17 +10,41 @@
 
 </head>
 <body ng-controller="FirstCtrl as vm">
-
-	<input type="text" ng-model="user.firstName">
-	<input type="text" ng-model="user.lastName">
-	<input type="text" ng-model="user.login">
-	<input type="text" ng-model="user.password">
-	<input type="text" ng-model="user.email">
-	<input type=checkbox ng-model="user.isDeleted">
-	<input type="checkbox" ng-model="user.isActivated">
-
+	<div>
+		<input type="text" placeholder="First Name" ng-model="user.firstName">
+		<input type="text" placeholder="Last Name" ng-model="user.lastName">
+		<input type="text" placeholder="Login" ng-model="user.login">
+		<input type="password" placeholder="password" ng-model="user.password">
+		<input type="text" placeholder="mail" ng-model="user.email">
+		<input type=checkbox ng-model="user.isDeleted"><span>deleted</span> 
+		<input type="checkbox" ng-model="user.isActivated"><span>activated</span>
 	
-
-	<button ng-click="addUserCtrlJs(user)">say hello</button>
+		
+	
+		<button ng-click="addUserCtrlJs(user)">add User</button>
+	</div>
+	<div>
+		<h2>User Search</h2>
+		<input type="email" placeholder="mail" ng-model="mail">
+		<button ng-click="searchUserJs(mail)">search user</button>
+		
+		<table>
+		   <tr>
+		      <th>Prénom</th>
+		      <th>Nom</th>
+		      <th>Login</th>
+		      <th>Email</th>
+		      <th>Password</th>
+		   </tr>
+		   <tr>
+		      <td>{{findUser.firstName}}</td>
+		      <td>{{findUser.lastName}}</td>
+		      <td>{{findUser.login}}</td>
+		      <td>{{findUser.email}}</td>
+		      <td>{{findUser.password}}</td>
+		   </tr>
+		   
+		</table>
+	</div>
 </body>
 </html>

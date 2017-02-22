@@ -10,6 +10,11 @@ function FirstCtrl(helloBean, $scope ){
 		});
 	}
 	
-	vm.helloBean.amal = "coucou";
-	vm.helloBean.roua = "rouaCommit";
+	
+	$scope.searchUserJs = function(data){
+		vm.helloBean.searchUserBean(data).then(function(userResult){
+			$scope.findUser = userResult;
+		})
+	}
+
 }
