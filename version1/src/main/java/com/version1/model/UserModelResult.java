@@ -4,26 +4,24 @@ public class UserModelResult {
 
 	private String firstName;
 	private String lastName;
-	private String login;
 	private String password;
 	private String email;
-	private Boolean isDeleted;
-	private Boolean isActivated;
+	private Boolean isHomme;
+	private Boolean isFemme;
 	
 	public UserModelResult() {
 		super();
 	}
 
-	public UserModelResult(String firstName, String lastName, String login, String password, String email,
-			Boolean isDeleted, Boolean isActivated) {
+	public UserModelResult(String firstName, String lastName, String password, String email,
+			Boolean isHomme, Boolean isFemme) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.login = login;
 		this.password = password;
 		this.email = email;
-		this.isDeleted = isDeleted;
-		this.isActivated = isActivated;
+		this.isHomme = isHomme;
+		this.isFemme = isFemme;
 	}
 
 	public String getFirstName() {
@@ -42,14 +40,6 @@ public class UserModelResult {
 		this.lastName = lastName;
 	}
 
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -66,29 +56,30 @@ public class UserModelResult {
 		this.email = email;
 	}
 
-	public Boolean getIsDeleted() {
-		return isDeleted;
+	public Boolean getIsHomme() {
+		return isHomme;
 	}
 
-	public void setIsDeleted(Boolean isDeleted) {
-		this.isDeleted = isDeleted;
+	public void setIsDeleted(Boolean isHomme) {
+		this.isHomme = isHomme;
 	}
 
-	public Boolean getIsActivated() {
-		return isActivated;
+	public Boolean getIsFemme() {
+		return isFemme;
 	}
 
-	public void setIsActivated(Boolean isActivated) {
-		this.isActivated = isActivated;
+	public void setIsFemme(Boolean isFemme) {
+		this.isFemme = isFemme;
 	}
 
 	@Override
 	public String toString() {
-		return "UserModelResult [firstName=" + firstName + ", lastName=" + lastName + ", login=" + login + ", password="
-				+ password + ", email=" + email + ", isDeleted=" + isDeleted + ", isActivated=" + isActivated + "]";
+		return "UserModelResult [firstName=" + firstName + ", lastName=" + lastName +  ", password="
+				+ password + ", email=" + email + ", isDeleted=" + isHomme + ", isActivated=" + isFemme + "]";
 	}
 	
 	
 	
 	
 }
+

@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.version1.entity.UserEntity;
+import com.version1.model.AuthentificationRequest;
 import com.version1.model.UserModelRequest;
 import com.version1.model.UserModelResult;
 
@@ -28,11 +29,10 @@ public class UserEntityService {
 			UserEntity user = new UserEntity();
 			user.setFirstName(userRequest.getFirstName());
 			user.setLastName(userRequest.getLastName());
-			user.setLogin(userRequest.getLogin());
 			user.setPassword(userRequest.getPassword());
 			user.setEmail(userRequest.getEmail());
-			user.setIsActivated(userRequest.getIsActivated());
-			user.setIsDeleted(true);
+			user.setIsHomme(userRequest.getIsHomme());
+			user.setIsFemme(true);
 			
 			em.persist(user);
 		} catch (Exception e) {
@@ -46,47 +46,35 @@ public class UserEntityService {
 	}
 	
 	
-	public UserModelResult searchUserService(String email){
+
+
+	public UserModelResult searchUserService(AuthentificationRequest user){
 		
-		// type de retoure est toute entité 
-//		Query query = em.createQuery(" SELECT *  "
-//								   + " FROM UserEntity u "
-//								   + " WHERE u.email = :p1 ")
-//				.setParameter("p1", email);
-//		
-//		UserEntity user = new UserEntity();
-//		
-//		user = (UserEntity) query.getSingleResult();
 		
 		try {
 			
-			// retoure avec un model
 			Query query = em.createQuery(" SELECT new com.version1.model.UserModelResult(  "
 						+ " u.firstName,        "
 						+ " u.lastName,         "
-						+ " u.login,            "
 						+ " u.password,         "
 						+ " u.email,            "
-						+ " u.isDeleted,        "
-						+ " u.isActivated  )   "
+						+ " u.isHomme,        "
+						+ " u.isFemme  )   "
 					   + " FROM UserEntity u   "
-					   + " WHERE u.email = :p1 ")
-				.setParameter("p1", email);
+					   + " WHERE u.email = :p1 and u.password= :p2 ")
+				.setParameter("p1", user.getMail())
+				.setParameter("p2", user.getPassword());
 				
-			UserModelResult user = new UserModelResult();
+			UserModelResult userResult = new UserModelResult();
 				
-				user = (UserModelResult) query.getSingleResult();
-				return user;
+			userResult = (UserModelResult) query.getSingleResult();
+				return userResult;
 			
 		} catch (Exception e) {
 			return null;
 		}
 		
-		
-		
-		
-		
-		
 	}
 	
 }
+

@@ -4,26 +4,24 @@ public class UserModelRequest {
 
 	private String firstName;
 	private String lastName;
-	private String login;
 	private String password;
 	private String email;
-	private Boolean isDeleted;
-	private Boolean isActivated;
+	private Boolean isFemme;
+	private Boolean isHomme;
 	
 	public UserModelRequest() {
 		super();
 	}
 
-	public UserModelRequest(String firstName, String lastName, String login, String password, String email,
-			Boolean isDeleted, Boolean isActivated) {
+	public UserModelRequest(String firstName, String lastName, String password, String email,
+			Boolean isHomme, Boolean isFemme) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.login = login;
 		this.password = password;
 		this.email = email;
-		this.isDeleted = isDeleted;
-		this.isActivated = isActivated;
+		this.isHomme = isHomme;
+		this.isFemme = isFemme;
 	}
 
 	/**
@@ -54,19 +52,7 @@ public class UserModelRequest {
 		this.lastName = lastName;
 	}
 
-	/**
-	 * @return the login
-	 */
-	public String getLogin() {
-		return login;
-	}
-
-	/**
-	 * @param login the login to set
-	 */
-	public void setLogin(String login) {
-		this.login = login;
-	}
+	
 
 	/**
 	 * @return the password
@@ -99,29 +85,29 @@ public class UserModelRequest {
 	/**
 	 * @return the isDeleted
 	 */
-	public Boolean getIsDeleted() {
-		return isDeleted;
+	public Boolean getIsFemme() {
+		return isFemme;
 	}
 
 	/**
 	 * @param isDeleted the isDeleted to set
 	 */
-	public void setIsDeleted(Boolean isDeleted) {
-		this.isDeleted = isDeleted;
+	public void setIsFemme(Boolean isFemme) {
+		this.isFemme = isFemme;
 	}
 
 	/**
 	 * @return the isActivated
 	 */
-	public Boolean getIsActivated() {
-		return isActivated;
+	public Boolean getIsHomme() {
+		return isHomme;
 	}
 
 	/**
 	 * @param isActivated the isActivated to set
 	 */
-	public void setIsActivated(Boolean isActivated) {
-		this.isActivated = isActivated;
+	public void setIsHomme(Boolean isHomme) {
+		this.isHomme = isHomme;
 	}
 
 	/* (non-Javadoc)
@@ -129,9 +115,9 @@ public class UserModelRequest {
 	 */
 	@Override
 	public String toString() {
-		return "UserModelRequest [firstName=" + firstName + ", lastName=" + lastName + ", login=" + login
-				+ ", password=" + password + ", email=" + email + ", isDeleted=" + isDeleted + ", isActivated="
-				+ isActivated + "]";
+		return "UserModelRequest [firstName=" + firstName + ", lastName=" + lastName 
+				+ ", password=" + password + ", email=" + email + ", isFemme=" + isFemme + ", isHomme="
+				+ isHomme + "]";
 	}
 	
 	

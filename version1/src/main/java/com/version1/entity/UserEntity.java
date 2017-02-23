@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class UserEntity {
 
 private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@SequenceGenerator(name="hibernate_sequence1")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="hibernate_sequence1")  
@@ -25,24 +25,23 @@ private static final long serialVersionUID = 1L;
 	@Column(name="LAST_NAME")
 	private String lastName;
 	
-	@Column(name="LOGIN")
-	private String login;
+	@Column(name="EMAIL")
+	private String email;
 	
 	@Column(name="PASSOWRD")
 	private String password;
 	
-	@Column(name="EMAIL")
-	private String email;
+	@Column(name="DATE_NESS")
+	private String dateNess;
 	
-	@Column(name="IS_DELETED")
-	private Boolean isDeleted;
 	
-	@Column(name="IS_ACTIVATED")
-	private Boolean isActivated;
+	@Column(name="IS_HOMME")
+	private Boolean isHomme;
+	
+	@Column(name="IS_FEMME")
+	private Boolean isFemme;
 
-	/**
-	 * @return the id
-	 */
+	
 	public int getId() {
 		return id;
 	}
@@ -82,23 +81,7 @@ private static final long serialVersionUID = 1L;
 		this.lastName = lastName;
 	}
 
-	/**
-	 * @return the login
-	 */
-	public String getLogin() {
-		return login;
-	}
-
-	/**
-	 * @param login the login to set
-	 */
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	/**
-	 * @return the password
-	 */
+	
 	public String getPassword() {
 		return password;
 	}
@@ -117,7 +100,7 @@ private static final long serialVersionUID = 1L;
 		return email;
 	}
 
-	/**
+	 /**
 	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
@@ -125,31 +108,32 @@ private static final long serialVersionUID = 1L;
 	}
 
 	/**
-	 * @return the isDeleted
+	 * @return the isHomme
 	 */
-	public Boolean getIsDeleted() {
-		return isDeleted;
+	public Boolean getIsHomme() {
+		return isHomme;
 	}
 
 	/**
-	 * @param isDeleted the isDeleted to set
+	 * @param isFemme the isHemme to set
 	 */
-	public void setIsDeleted(Boolean isDeleted) {
-		this.isDeleted = isDeleted;
+	
+	public void setIsHomme(Boolean isHomme) {
+		this.isHomme = isHomme;
 	}
 
 	/**
-	 * @return the isActivated
+	 * @return the isFemme
 	 */
-	public Boolean getIsActivated() {
-		return isActivated;
+	public Boolean getIsFemme() {
+		return isFemme;
 	}
 
 	/**
-	 * @param isActivated the isActivated to set
+	 * @param isFemme theisHemme to set
 	 */
-	public void setIsActivated(Boolean isActivated) {
-		this.isActivated = isActivated;
+	public void setIsFemme(Boolean isFemme) {
+		this.isFemme = isFemme;
 	}
 	
 	
