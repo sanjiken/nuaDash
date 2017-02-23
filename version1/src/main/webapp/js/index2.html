@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+<meta charset="ISO-8859-1">
+<title>example1</title>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="angular-beans.js"></script>
+<script type="text/javascript" src="js/controller.js"></script>
+<script type="text/javascript" src="js/module.js"></script>
+<script type="text/javascript" src="js/homeCtrl.js"></script>
+<link href="css/style1.css" rel="stylesheet" />
+
+</head>
+<body ng-controller="SecondCtrl as vn">
+
+ 
+
+	<div>
+	<h2>Sign-up  </h2>
+  <input type="text" id="name" name="name" placeholder="Nom.."/><br>
+    <input type="text" id="name" name="name" placeholder="prenom.."/><br>
+  <input type="text" id="mail" name="mail" placeholder="Mail.." /><br>
+  <input type="text" id="password" name="password"  placeholder="Password.." /><br>
+  <!-- Agree with the term of services -->
+   date de naissance:<br><input type="date" name="bday" />
+ <br>
+  <input type="checkbox" id="sexe" name="homme" />homme<br>
+    <input type="checkbox" id="sexe" name="femme" />femme<br>
+
+			<button ng-click="addUserCtrlJs(user)">creé user</button>
+		
+	
+</form>
+</body>
+</html>
