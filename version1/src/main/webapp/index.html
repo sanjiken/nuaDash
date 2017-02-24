@@ -6,8 +6,8 @@
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="angular-beans.js"></script>
 <script type="text/javascript" src="js/controller.js"></script>
+<script type="text/javascript" src="js/controler2.js"></script>
 <script type="text/javascript" src="js/module.js"></script>
-<script type="text/javascript" src="js/homeCtrl.js"></script>
 <link href="css/style.css" rel="stylesheet" />
 
 </head>
@@ -26,14 +26,14 @@
           <fieldset>
 
             <p><label for="email">E-mail address</label></p>
-            <p><input type="email" id="email" placeholder="mail@address.com" ng-model="user.mail" ></p>
+            <p><input type="email" id="email" placeholder="mail@address.com" ng-model="vm.helloBean.user.mail" ></p>
 
             <p><label for="password">Password</label></p>
-            <p><input type="password" id="password" placeholder="password"ng-model="user.password"></p>
+            <p><input type="password" id="password" placeholder="password" ng-model="vm.helloBean.user.password"></p>
 
-        <p><a ng-click="searchUserJs(user)">Login </a>
+        <p><b><a  ng-click="searchUserJs(vm.helloBean.user)">Login </a></b></p>
         
-  <p><a href = "index2.html">sing up</button></p>
+  <p><b><a href = "index2.html">sing up</button></b></p>
           </fieldset>
 
     </div>
