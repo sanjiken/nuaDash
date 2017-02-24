@@ -50,7 +50,8 @@ public class UserEntityService {
 
 	public UserModelResult searchUserService(AuthentificationRequest user){
 		
-		
+		System.out.println("this is the mail from service : " + user.getMail());
+		System.out.println("this is the password from service : " + user.getPassword());
 		try {
 			
 			Query query = em.createQuery(" SELECT new com.version1.model.UserModelResult(  "
@@ -74,7 +75,7 @@ public class UserEntityService {
 			return null;
 		}
 		
-	}
+}
 	
 }
 
