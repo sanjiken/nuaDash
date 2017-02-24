@@ -52,7 +52,7 @@ public class UserEntityService {
 		
 		System.out.println("this is the mail from service : " + user.getMail());
 		System.out.println("this is the password from service : " + user.getPassword());
-		
+
 		try {
 			
 			Query query = em.createQuery(" SELECT new com.version1.model.UserModelResult(  "
@@ -68,7 +68,7 @@ public class UserEntityService {
 				.setParameter("p2", user.getPassword());
 				
 			UserModelResult userResult = new UserModelResult();
-				
+			
 			userResult = (UserModelResult) query.getSingleResult();
 				return userResult;
 			
@@ -76,7 +76,7 @@ public class UserEntityService {
 			return null;
 		}
 		
-	}
+}
 	
 }
 

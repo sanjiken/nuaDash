@@ -60,7 +60,7 @@ public class UserModelResult {
 		return isHomme;
 	}
 
-	public void setIsDeleted(Boolean isHomme) {
+	public void setIsHomme(Boolean isHomme) {
 		this.isHomme = isHomme;
 	}
 
