@@ -1,4 +1,4 @@
-function FirstCtrl(helloBean, $scope ){
+function FirstCtrl(helloBean, $scope ,$window){
 	
 	var vm = this;
 	vm.helloBean = helloBean;
@@ -8,10 +8,11 @@ function FirstCtrl(helloBean, $scope ){
     	 console.log("this is the mail : " + data.password)
 		vm.helloBean.searchUserBean(data).then(function(userResult){
 			$scope.findUser = userResult;
+			 console.log
 			if ($scope.findUser != null) {
-				console.log("redirection vers bonjour.html");
-			}else{
-				console.log("user not found !!! ");
+				var myWindow1 = $window.location.href("bonjour.html");}
+			else
+				{var myWindow2 = $window.open("index2.html");	
 			}
 		})
 	}
