@@ -50,6 +50,8 @@ public class UserEntityService {
 
 	public UserModelResult searchUserService(AuthentificationRequest user){
 		
+		System.out.println("this is the mail from service : " + user.getMail());
+		System.out.println("this is the password from service : " + user.getPassword());
 		
 		try {
 			

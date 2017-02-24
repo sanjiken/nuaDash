@@ -38,6 +38,9 @@ public class HelloBean {
 	@NGReturn(model = "userResult")
 	public UserModelResult searchUserBean(AuthentificationRequest user){
 		
+		System.out.println("this is the mail from bean : " + user.getMail());
+		System.out.println("this is the password from bean : " + user.getPassword());
+		
 		return userEntityService.searchUserService(user);
 	}
 
