@@ -7,9 +7,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.version1.entity.UserEntity;
-import com.version1.model.AuthentificationRequest;
-import com.version1.model.UserModelRequest;
-import com.version1.model.UserModelResult;
+import com.version1.model.ModelRequestIn;
+import com.version1.model.ModelRequestUp;
+import com.version1.model.ModelResultIn;
 
 @LocalBean
 @Stateless
@@ -21,24 +21,29 @@ public class UserEntityService {
 	@PersistenceContext
 	EntityManager em;
 	
-	public String addUserService(UserModelRequest userRequest){
+	public String addUserService(ModelRequestUp userRequest){
 		
 		String isSucces = "succes" ;
 		
-		try {
-			UserEntity user = new UserEntity();
-			user.setFirstName(userRequest.getFirstName());
-			user.setLastName(userRequest.getLastName());
-			user.setPassword(userRequest.getPassword());
-			user.setEmail(userRequest.getEmail());
-			user.setIsHomme(userRequest.getIsHomme());
-			user.setIsFemme(true);
+		if (userRequest != null) {
 			
-			em.persist(user);
-		} catch (Exception e) {
-			e.printStackTrace();
-			isSucces = "error";
+			try {
+				UserEntity user = new UserEntity();
+				user.setUserName(userRequest.getUserName());
+				user.setConfPassword(userRequest.getConfPassword());
+				user.setPassword(userRequest.getPassword());
+				user.setEmail(userRequest.getEmail());
+			
+				
+				em.persist(user);
+			} catch (Exception e) {
+				e.printStackTrace();
+				isSucces = "error";
+			}
+		}else{
+			isSucces = "user request null";
 		}
+		
 		
 		
 		
@@ -48,28 +53,25 @@ public class UserEntityService {
 	
 
 
-	public UserModelResult searchUserService(AuthentificationRequest user){
+	public ModelResultIn searchUserService(ModelRequestIn user){
 		
-		System.out.println("this is the mail from service : " + user.getMail());
+		System.out.println("this is the mail from service : " + user.getEmail());
 		System.out.println("this is the password from service : " + user.getPassword());
 
 		try {
 			
-			Query query = em.createQuery(" SELECT new com.version1.model.UserModelResult(  "
-						+ " u.firstName,        "
-						+ " u.lastName,         "
-						+ " u.password,         "
-						+ " u.email,            "
-						+ " u.isHomme,        "
-						+ " u.isFemme  )   "
+			Query query = em.createQuery(" SELECT new com.version1.model.ModelResultIn(  "
+						+ " u.id ,      "
+						+ " u.userName, "
+						+ " u.email )   "
 					   + " FROM UserEntity u   "
 					   + " WHERE u.email = :p1 and u.password= :p2 ")
-				.setParameter("p1", user.getMail())
+				.setParameter("p1", user.getEmail())
 				.setParameter("p2", user.getPassword());
 				
-			UserModelResult userResult = new UserModelResult();
+			ModelResultIn userResult = new ModelResultIn();
 			
-			userResult = (UserModelResult) query.getSingleResult();
+			userResult = (ModelResultIn) query.getSingleResult();
 				return userResult;
 			
 		} catch (Exception e) {

@@ -25,24 +25,24 @@ public class HelloBean {
 	public void init(){
 		modelQuery.setProperty("user", new AuthentificationRequest());
 	}
-	
-	@Get
-	@NGReturn(model = "msgUserAdd")
-	public String addUserBean(UserModelRequest userModelRequest){
-		
-		return userEntityService.addUserService(userModelRequest);
-	}
-	
-	
-	@Get
-	@NGReturn(model = "userResult")
-	public UserModelResult searchUserBean(AuthentificationRequest user){
-		
-		System.out.println("this is the mail from bean : " + user.getMail());
-		System.out.println("this is the password from bean : " + user.getPassword());
-		
-		return userEntityService.searchUserService(user);
-	}
+//	
+//	@Get
+//	@NGReturn(model = "msgUserAdd")
+//	public String addUserBean(UserModelRequest userModelRequest){
+//		
+//		return userEntityService.addUserService(userModelRequest);
+//	}
+//	
+//	
+//	@Get
+//	@NGReturn(model = "userResult")
+//	public UserModelResult searchUserBean(AuthentificationRequest user){
+//		
+//		System.out.println("this is the mail from bean : " + user.getMail());
+//		System.out.println("this is the password from bean : " + user.getPassword());
+//		
+//		return userEntityService.searchUserService(user);
+//	}
 
 	
 	

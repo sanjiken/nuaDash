@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="angular-beans.js"></script>
+<script type="text/javascript" src="js/controller.js"></script>
+<script type="text/javascript" src="js/module.js"></script>
+<script type="text/javascript" src="js/homeCtrl.js"></script>
+<link href="css/amal.css" rel="stylesheet" />
+</head>
+<body ng-controller="SecondCtrl as vn">
+<div class="wrapper">
+	<div class="container">
+		<h1>Sign-up </h1>
+		
+		<form class="form">
+
+		<p> <input type="text" id="name" name="name" placeholder="Nom.." ng-model="user.firstName"/><bd><bd></p>
+		 <p> <input type="text" id="name" name="name" placeholder="prenom.." ng-model="user.lastName"/><bd><bd></p> 
+			<p><input type="email" id="email" placeholder="mail@address.com" ng-model="vm.helloBean.user.mail"/><bd><bd></p>
+			<p><input type="password" id="password" placeholder="password" ng-model="vm.helloBean.user.password"/><bd><bd></p>
+			<p>date de naissance:<input type="date" name="bday"  ng-model="user.dateNess"/><br><bd></p>
+			<p><input type="checkbox" id="sexe" name="homme" ng-model="user.isHomme" /> homme<bd><bd></p>
+            <p><input type="checkbox" id="sexe" name="femme" ng-model="user.isFemme" />femme<bd></p>
+            
+			<button ng-click="addUserCtrlJs(vm.helloBean.user)"id="login-button">add</button>
+			
+		
+		</form>
+	</div>
+
+</div>
+</body>
+</html>
