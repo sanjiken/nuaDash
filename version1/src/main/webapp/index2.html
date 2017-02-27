@@ -8,28 +8,30 @@
 <script type="text/javascript" src="js/controller.js"></script>
 <script type="text/javascript" src="js/module.js"></script>
 <script type="text/javascript" src="js/homeCtrl.js"></script>
-<link href="css/style1.css" rel="stylesheet" />
+<link href="css/amal.css" rel="stylesheet" />
+
 
 </head>
 <body ng-controller="SecondCtrl as vn">
 
  
 
-	<div>
-	<h2>Sign-up  </h2>
-  <input type="text" id="name" name="name" placeholder="Nom.."/><br>
-    <input type="text" id="name" name="name" placeholder="prenom.."/><br>
-  <input type="text" id="mail" name="mail" placeholder="Mail.." /><br>
-  <input type="text" id="password" name="password"  placeholder="Password.." /><br>
-  <!-- Agree with the term of services -->
-   date de naissance:<br><input type="date" name="bday" />
- <br>
-  <input type="checkbox" id="sexe" name="homme" />homme<br>
-    <input type="checkbox" id="sexe" name="femme" />femme<br>
+	<center><div id="tt">
+	 <h2 ><label id="sg">Sign-up  </label>  </h2> </div>
+  <div>
+    <input type="text" id="name" name="name" placeholder="Nom.." ng-model="user.firstName"/><br> <br>
+    <input type="text" id="name" name="name" placeholder="prenom.." ng-model="user.lastName"/><br> <br>
+    <input type="text" id="mail" name="mail" placeholder="Mail.." ng-model="user.email"/><br><br>
+    <input type="password" id="password" name="password"  placeholder="Password.." ng-model="user.password"/><br><br>
 
-			<button ng-click="addUserCtrlJs(user)">creé user</button>
+ date de naissance: <input type="date" name="bday"  ng-model="user.dateNess"/><br>
+  <input type="checkbox" id="sexe" name="homme" ng-model="user.isHomme" /> homme
+  <input type="checkbox" id="sexe" name="femme" ng-model="user.isFemme" />femme
+  <br>
+<button ng-click="addUserCtrlJs(user)">creé user</button>
 		
-	
-</form>
+
+</div>
+</center>
 </body>
 </html>

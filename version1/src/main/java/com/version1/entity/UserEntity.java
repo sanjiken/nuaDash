@@ -19,27 +19,20 @@ private static final long serialVersionUID = 1L;
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="hibernate_sequence1")  
 	private int id;
 	
-	@Column(name="FIRST_NAME")
-	private String firstName;
-	
-	@Column(name="LAST_NAME")
-	private String lastName;
+	@Column(name="USER_NAME")
+	private String userName;
+
+
+		@Column(name="PASSOWRD")
+	   private String password;
+		
+		@Column(name="CONF_PASSOWRD")
+		   private String confPassword;
 	
 	@Column(name="EMAIL")
 	private String email;
 	
-	@Column(name="PASSOWRD")
-	private String password;
 	
-	@Column(name="DATE_NESS")
-	private String dateNess;
-	
-	
-	@Column(name="IS_HOMME")
-	private Boolean isHomme;
-	
-	@Column(name="IS_FEMME")
-	private Boolean isFemme;
 
 	
 	public int getId() {
@@ -53,90 +46,44 @@ private static final long serialVersionUID = 1L;
 		this.id = id;
 	}
 
-	/**
-	 * @return the firstName
-	 */
-	public String getFirstName() {
-		return firstName;
+	public String getUserName() {
+		return userName;
 	}
 
-	/**
-	 * @param firstName the firstName to set
-	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	/**
-	 * @return the lastName
-	 */
-	public String getLastName() {
-		return lastName;
-	}
-
-	/**
-	 * @param lastName the lastName to set
-	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	
 	public String getPassword() {
 		return password;
 	}
 
-	/**
-	 * @param password the password to set
-	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	/**
-	 * @return the email
-	 */
+	public String getConfPassword() {
+		return confPassword;
+	}
+
+	public void setConfPassword(String confPassword) {
+		this.confPassword = confPassword;
+	}
+
 	public String getEmail() {
 		return email;
 	}
 
-	 /**
-	 * @param email the email to set
-	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	/**
-	 * @return the isHomme
-	 */
-	public Boolean getIsHomme() {
-		return isHomme;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	/**
-	 * @param isFemme the isHemme to set
+	 * @return the firstName
 	 */
-	
-	public void setIsHomme(Boolean isHomme) {
-		this.isHomme = isHomme;
-	}
-
-	/**
-	 * @return the isFemme
-	 */
-	public Boolean getIsFemme() {
-		return isFemme;
-	}
-
-	/**
-	 * @param isFemme theisHemme to set
-	 */
-	public void setIsFemme(Boolean isFemme) {
-		this.isFemme = isFemme;
-	}
-	
-	
-	
 	
 }
