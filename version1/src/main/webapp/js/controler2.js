@@ -10,11 +10,7 @@ $scope.addUserCtrlJs = function(data){
 		});
 	}
 	
-	$scope.searchUserJs = function(data){
-		vm.helloBean.searchUserBean(data).then(function(userResult){
-			$scope.findUser = userResult;
-		})
-	}
+	
 
 
 }
