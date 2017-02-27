@@ -10443,8 +10443,6 @@ md-toolbar {
     -webkit-transform: scale(0);
             transform: scale(0);
     opacity: 0; }
->>>>>>> branch 'master' of https://github.com/sanjiken/nuaDash.git
-
 .md-truncate {
   overflow: hidden;
   white-space: nowrap;
