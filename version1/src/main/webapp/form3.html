@@ -15,13 +15,13 @@
 <link rel="stylesheet" href="css/form3.css" />
 <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"  />
 </head>
-<body>
+<body  ng-controller="CtrlSignIn as vm">
 <div class="login-wrap">
 	<div class="login-html">
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
 		<div class="login-form">
-			<div class="sign-in-htm" ng-controller="CtrlSignIn as vm">
+			<div class="sign-in-htm">
 				<div class="group">
 					<label for="user" class="label">email</label>
 					<input id="user" type="email" class="input" ng-model="vm.beanSignIn.user.email">
