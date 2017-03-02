@@ -76,8 +76,7 @@ public class UserEntityService {
 				user.setUserName(userRequest.getUserName());
 			
 	            user.setPassword(userRequest.getPassword());
-			
-				user.setEmail(userRequest.getEmail());
+			    user.setEmail(userRequest.getEmail());
 				user.setIsActivate(false);
 				
 				eem.persist(user);
@@ -127,6 +126,34 @@ public class UserEntityService {
 		
 }
 		
+
+	public UserModelResultCnx searchMail(UserModelRequestCnx user){
+		
+		System.out.println("this is the mail from service : " + user.getEmail());
+		System.out.println("this is the password from service : " + user.getPassword());
+
+		try {
+			
+			Query query = eem.createQuery(" SELECT new com.version1.model.UserModelResultCnx(  "
+						+ " u.id ,      "
+						+ " u.userName, "
+						+ " u.email )   "
+					   + " FROM UserEntityy u   "
+					   + " WHERE u.email = :p1 and u.password= :p2 ")
+				.setParameter("p1", user.getEmail())
+				.setParameter("p2", user.getPassword());
+				
+			UserModelResultCnx userResult = new UserModelResultCnx();
+			
+			userResult = (UserModelResultCnx)  query.getSingleResult();
+				return userResult;
+			
+		} catch (Exception e) {
+			return null;
+		}
+		
+}
+	
 	
 	
 }

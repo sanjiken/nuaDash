@@ -35,6 +35,9 @@ public class AngularbeanUser {
 		return UserEntityService.searchService(userC);
 	}
 	
+
+	
+	
 	@Get
 	@NGReturn(model = "userConnected")
 	public UserModelResultCnx getUserConnected(UserModelRequestCnx userC){
