@@ -3,6 +3,8 @@ function CtrlAccueil (angularbeanUser, $scope) {
 	var vm = this;
 	vm.angularbeanUser = angularbeanUser;
 	
+	console.log("11111")
+	
 	$scope.searchUserJs=function(data){
 		
 				if (data.email == null || data.email == undefined || data.email  == "" ) {
@@ -27,14 +29,12 @@ function CtrlAccueil (angularbeanUser, $scope) {
 						
 						
 					})
-				
-				
-			}
-			
-			
 	}
 	
+
+}
 	$scope.addUserCtrlJs = function(data){
+		console.log("00000")
 	    if(data.userName == null || data.userName == undefined || data.email  == ""){
 			$scope.response = "Vous n'avez spécifiez votre user name "
 		}else if(data.password == null || data.password == undefined || data.password  == ""){
@@ -46,15 +46,26 @@ function CtrlAccueil (angularbeanUser, $scope) {
 		}else if(data.email == null || data.email == undefined || data.email  == ""){
             $scope.response = "Vous n'avez spécifiez votre email"
 		}else {
-			
-			vm.angularbeanUser.addUserBean(data).then(function(msgUserAdd){
-				("this is the response for adding user : " + msgUserAdd);
-				$scope.response=msgUserAdd;
-			});
-		}
-	}
+			vm.angularbeanUser.mailSearsh(data.email).then(function(rescherchmail){
+				$scope.rescherchmail = rescherchmail;
+				
+				if($scope.rescherchmail == "mailNotFound" ){
+					
+				     vm.angularbeanUser.addUserBean(data).then(function(msgUserAdd){
+						("this is the response for adding user : " + msgUserAdd);
+						$scope.response=msgUserAdd;
+				 });
 
-	
+				}else{
+					$scope.response = "Vous avez spécifiez un email exist déja"
+				}
+				
+		})
+			}
+
+
+		}
+		
 
 
 }

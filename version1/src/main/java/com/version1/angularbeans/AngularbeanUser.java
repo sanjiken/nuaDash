@@ -37,8 +37,8 @@ public class AngularbeanUser {
 	
 	@Get
 	@NGReturn(model = "rescherchmail")
-	public String mailSearsh(UserModelRequestCnx userC ){
-		return UserEntityService.searchMail(userC);
+	public String mailSearsh(String email ){
+		return UserEntityService.searchMail(email);
 	}
 	
 	

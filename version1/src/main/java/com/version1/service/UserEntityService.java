@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import com.version1.entity.UserEntityy;
 import com.version1.model.UserModelRequestAdd;
 import com.version1.model.UserModelRequestCnx;
+import com.version1.model.UserModelResultAdd;
 import com.version1.model.UserModelResultCnx;
 
 @LocalBean
@@ -71,6 +72,8 @@ public class UserEntityService {
 		
 		if (userRequest != null) {
 			
+			
+			
 			try {
 				UserEntityy user = new UserEntityy();
 				user.setUserName(userRequest.getUserName());
@@ -127,29 +130,24 @@ public class UserEntityService {
 }
 		
 
-	public UserModelResultCnx searchMail(UserModelRequestCnx user){
+	public String searchMail(String email){
 		
-		System.out.println("this is the mail from service : " + user.getEmail());
-		System.out.println("this is the password from service : " + user.getPassword());
-
+		
 		try {
-			
-			Query query = eem.createQuery(" SELECT new com.version1.model.UserModelResultCnx(  "
-						+ " u.id ,      "
-						+ " u.userName, "
-						+ " u.email )   "
+			Query query = eem.createQuery(" SELECT u  "
 					   + " FROM UserEntityy u   "
-					   + " WHERE u.email = :p1 and u.password= :p2 ")
-				.setParameter("p1", user.getEmail())
-				.setParameter("p2", user.getPassword());
+					   + " WHERE u.email = :p1  ")
+				.setParameter("p1", email);
 				
-			UserModelResultCnx userResult = new UserModelResultCnx();
+				
 			
-			userResult = (UserModelResultCnx)  query.getSingleResult();
-				return userResult;
+			UserEntityy userResult = (UserEntityy)  query.getSingleResult();
+				
+			return "mailFound";
 			
 		} catch (Exception e) {
-			return null;
+			e.printStackTrace();
+			return "mailNotFound";
 		}
 		
 }
