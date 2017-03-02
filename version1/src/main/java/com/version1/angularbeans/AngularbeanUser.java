@@ -36,6 +36,13 @@ public class AngularbeanUser {
 	}
 	
 	@Get
+	@NGReturn(model = "rescherchmail")
+	public String mailSearsh(UserModelRequestCnx userC ){
+		return UserEntityService.searchMail(userC);
+	}
+	
+	
+	@Get
 	@NGReturn(model = "userConnected")
 	public UserModelResultCnx getUserConnected(UserModelRequestCnx userC){
     
