@@ -1,18 +1,15 @@
 package com.version1.model;
 
-public class ModelRequestIn  {
-
+public class UserModelRequestCnx {
 	
-
-	private String  email;
-
+	private String email;
 	private String password;
-
-	public ModelRequestIn() {
+	
+	public UserModelRequestCnx() {
 		super();
 	}
 
-	public ModelRequestIn(String email, String password) {
+	public UserModelRequestCnx(String email, String password) {
 		super();
 		this.email = email;
 		this.password = password;
@@ -34,14 +31,13 @@ public class ModelRequestIn  {
 		this.password = password;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "ModelRequestIn [email=" + email + ", password=" + password + "]";
+		return "UserModelRequestCnx [email=" + email + ", password=" + password + "]";
 	}
-	
-
-	
-
 	
 	
 }

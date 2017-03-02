@@ -1,20 +1,49 @@
-function FirstCtrl(helloBean, $scope,$window ){
+function CtrlAccueil (angularbeanUser, $scope) {
 	
 	var vm = this;
-	vm.helloBean = helloBean;
+	vm.angularbeanUser = angularbeanUser;
 	
-	    $scope.searchUserJs = function(data){
-			vm.helloBean.searchUserBean(data).then(function(userResult){
-				$scope.findUser = userResult;
-				if (userResult == null || userResult == "null" || userResult == "" ) {
+	$scope.searchUserJs=function(data){
+		
+		if (data.email == null || data.email == undefined || data.email  == "" ) {
+			$scope.resUserSearsh == "mail invalid !!!";
+		}else if(data.password == null || data.password == undefined || data.password  == ""){
+			$scope.resUserSearsh == "password null !!!";
+		}else{
+			vm.angularbeanUser.userSearsh(data).then(function(resUserSearsh){
+				$scope.resUserSearsh = resUserSearsh;
+				
+				if ($scope.resUserSearsh == "succes") {
 					
+					//get user information
+					vm.angularbeanUser.getUserConnected(data).then(function(userConnected){
+						
+						$scope.findUser=userConnected;
+						console.log("resultat search" + vm.angularbeanUser.resUserSearsh)
+						
+						});
 					
-					
-				}else{
-					$window.location.href = 'bonjour.html';
 				}
-			});
+				
+				
+				
+			})
+		
+		
 	}
+			
+	$scope.addUserCtrlJs = function(data){
+		
+			vm.angularbeanUser.addUserBean(data).then(function(msgUserAdd){
+				("this is the response for adding user : " + msgUserAdd);
+			
+			});
+			
+		}
+	
+	
+
+	
 
 
 }

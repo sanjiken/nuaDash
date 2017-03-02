@@ -1,68 +1,72 @@
 <!DOCTYPE html>
 <html ng-app="myModule">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
 <script type="text/javascript" src="angular-beans.js"></script>
-<script type="text/javascript" src="js/controllerIn.js"></script>
-<script type="text/javascript" src="js/controllerUp.js"></script>
+
+
+<script type="text/javascript" src="js/controller.js"></script>
 <script type="text/javascript" src="js/module.js"></script>
 
-<link rel="stylesheet" href="css/form3.css" />
+
+<link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"  />
+<meta charset="ISO-8859-1">
+<title>home</title>
 </head>
-<body  ng-controller="CtrlSignIn as vm">
+<body  ng-controller="CtrlAccueil as vm">
+
 <div class="login-wrap">
 	<div class="login-html">
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-		<div class="login-form">
-			<div class="sign-in-htm">
+		<div class="login-form" >
+			<div class="sign-in-htm" >
 				<div class="group">
-					<label for="user" class="label">email</label>
-					<input id="user" type="email" class="input" ng-model="vm.beanSignIn.user.email">
+					<label for="email" class="label">email</label>
+					<input id="email" type="email" class="input" ng-model="vm.angularbeanUser.userCnx.email">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password" ng-model="vm.beanSignIn.user.password">
+					<input id="pass" type="password" class="input" data-type="password" ng-model="vm.angularbeanUser.userCnx.password">
 				</div>
 				<div class="group">
 					<input id="check" type="checkbox" class="check" checked>
 					<label for="check"><span class="icon"></span> Keep me Signed in</label>
 				</div>
 				<div class="group">
-					<input type="submit" class="button" value="Sign In" ng-click="searchUserJs(vm.beanSignIn.user)" >
+					<input type="submit" class="button" value="Sign In" ng-click="searchUserJs(vm.angularbeanUser.userCnx)" >
 				</div>
-				<div class="hr"></div>
+				<div class="hr">{{resUserSearsh}}</div>
 				<div class="foot-lnk">
 					<a href="#forgot">Forgot Password?</a>
 				</div>
 			</div>
-			<div class="sign-up-htm" ng-controller="CtrlSignUp as vn">
+			<div class="sign-up-htm" >
 				<div class="group">
 					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input" ng-model="vn.beanSignUp.user.userName">
+					<input id="user" type="text" class="input" ng-model="vm.angularbeanUser.user.userName">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password" ng-model="vn.beanSignUp.user.password">
+					<input id="pass" type="password" class="input" data-type="password" ng-model="vm.angularbeanUser.user.password">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Repeat Password</label>
-					<input id="pass" type="password" class="input" data-type="password" ng-model="vn.beanSignUp.user.confPassword">
+					<input id="pass" type="password" class="input" data-type="password" ng-model="vm.angularbeanUser.user.confPassword">
 				</div>
 				<div class="group">
-					<label for="pass" class="label">Email Address</label>
-					<input id="pass" type="email" class="input" ng-model="vn.beanSignUp.user.email">
+					<label for="email" class="label">Email Address</label>
+					<input id="email" type="email" class="input" ng-model="vm.angularbeanUser.user.email">
 				</div>
+				
 				<div class="group">
-					<input type="submit" class="button" value="Sign Up" ng-click="addUserCtrlJs(vn.beanSignUp.user)">
+					<input type="submit" class="button" value="Sign Up" ng-click="addUserCtrlJs(vm.angularbeanUser.user)">
 				</div>
-				<div class="hr"></div>
+				<div class="hr"> {{msgUserAdd}}</div>
 				<div class="foot-lnk">
 					<label for="tab-1">Already Member?</a>
 				</div>
@@ -70,5 +74,8 @@
 		</div>
 	</div>
 </div>
+
+
+
 </body>
 </html>

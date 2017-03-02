@@ -6,36 +6,81 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.version1.entity.UserEntity;
-import com.version1.model.ModelRequestIn;
-import com.version1.model.ModelRequestUp;
-import com.version1.model.ModelResultIn;
+import com.version1.entity.UserEntityy;
+import com.version1.model.UserModelRequestAdd;
+import com.version1.model.UserModelRequestCnx;
+import com.version1.model.UserModelResultCnx;
 
 @LocalBean
 @Stateless
 public class UserEntityService {
 
-	/**
-	 * Entity manager injected
-	 */
+
 	@PersistenceContext
-	EntityManager em;
+	EntityManager eem;
 	
-	public String addUserService(ModelRequestUp userRequest){
+	
+	
+	public String searchService(UserModelRequestCnx userCnx){
+		
+		
+		
+		try {
+			
+			Query query = eem.createQuery(" SELECT new com.version1.model.UserModelRequestCnx(  "
+					
+					   + " u.email,"
+					   + " u.password )   "
+					   + " FROM UserEntityy u   "
+					   + " WHERE u.email = :p1  ")
+				.setParameter("p1", userCnx.getEmail());
+				
+			UserModelRequestCnx result = (UserModelRequestCnx) query.getSingleResult();
+			
+			
+			
+			        if(!userCnx.getPassword().equals(result.getPassword())){
+			        	return "Password Not Correct";
+			        	
+			        }
+			        else{
+			        	return "Succes";
+			        }
+			    
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			return "UserNotFound";
+		}
+			
+			
+			
+			
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public String addUserService(UserModelRequestAdd userRequest){
 		
 		String isSucces = "succes" ;
 		
 		if (userRequest != null) {
 			
 			try {
-				UserEntity user = new UserEntity();
+				UserEntityy user = new UserEntityy();
 				user.setUserName(userRequest.getUserName());
-				user.setConfPassword(userRequest.getConfPassword());
-				user.setPassword(userRequest.getPassword());
-				user.setEmail(userRequest.getEmail());
 			
+	            user.setPassword(userRequest.getPassword());
+			
+				user.setEmail(userRequest.getEmail());
+				user.setIsActivate(false);
 				
-				em.persist(user);
+				eem.persist(user);
 			} catch (Exception e) {
 				e.printStackTrace();
 				isSucces = "error";
@@ -45,33 +90,35 @@ public class UserEntityService {
 		}
 		
 		
-		
-		
 		return isSucces;
-	}
+	
+		
+		     
+		}
+	
 	
 	
 
 
-	public ModelResultIn searchUserService(ModelRequestIn user){
+	public UserModelResultCnx searchUserService(UserModelRequestCnx user){
 		
 		System.out.println("this is the mail from service : " + user.getEmail());
 		System.out.println("this is the password from service : " + user.getPassword());
 
 		try {
 			
-			Query query = em.createQuery(" SELECT new com.version1.model.ModelResultIn(  "
+			Query query = eem.createQuery(" SELECT new com.version1.model.UserModelResultCnx(  "
 						+ " u.id ,      "
 						+ " u.userName, "
 						+ " u.email )   "
-					   + " FROM UserEntity u   "
+					   + " FROM UserEntityy u   "
 					   + " WHERE u.email = :p1 and u.password= :p2 ")
 				.setParameter("p1", user.getEmail())
 				.setParameter("p2", user.getPassword());
 				
-			ModelResultIn userResult = new ModelResultIn();
+			UserModelResultCnx userResult = new UserModelResultCnx();
 			
-			userResult = (ModelResultIn) query.getSingleResult();
+			userResult = (UserModelResultCnx)  query.getSingleResult();
 				return userResult;
 			
 		} catch (Exception e) {
@@ -79,6 +126,7 @@ public class UserEntityService {
 		}
 		
 }
+		
+	
 	
 }
-
