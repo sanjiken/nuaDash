@@ -52,16 +52,15 @@
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input name="Password" required ng-minlength="6" ng-model="vm.angularbeanUser.user.password">/>
-				</div>	
+					<input id="pass" type="password" class="input" data-type="password" ng-model="vm.angularbeanUser.user.password">
+				</div>
 				<div class="group">
-				<label for="pass" class="label">ConfirmPassword</label>
-                     <input name="ConfirmPassword" required equals-to="vm.angularbeanUser.user.password" />
-					</div>
+					<label for="pass" class="label">Repeat Password</label>
+					<input id="pass" type="password" class="input" data-type="password" ng-model="vm.angularbeanUser.user.confPassword">
+				</div>
 				<div class="group">
 					<label for="email" class="label">Email Address</label>
-					<input id="email" type="email" class="input" ng-model="vm.angularbeanUser.user.email"
-					 required compare-to="userResult.user.email"/>
+					<input id="email" type="email" class="input" ng-model="vm.angularbeanUser.user.email">
 				</div>
 				
 				<div class="group">
