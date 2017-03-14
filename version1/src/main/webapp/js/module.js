@@ -1,2 +1,3 @@
-var myModule = angular.module("myModule", [ "angularBeans","ngMaterial",'ngRoute'])
+var myModule = angular.module("myModule", [ "angularBeans","ngMaterial"])
 .controller('CtrlAccueil',CtrlAccueil);
+

@@ -38,7 +38,7 @@ function CtrlAccueil (angularbeanUser, $scope) {
 		
 		
 		console.log("00000")
-	    if(data.userName == null || data.userName == undefined || data.email  == ""){
+	    if(data.userName == null || data.userName == undefined || data.userName  == ""){
 			$scope.response = "Vous n'avez spécifiez votre user name "
 		}else if(data.password == null || data.password == undefined || data.password  == ""){
 			$scope.response = "Vous n'avez spécifiez votre password "
